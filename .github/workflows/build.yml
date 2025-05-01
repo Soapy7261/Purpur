@@ -30,3 +30,9 @@ jobs:
           ./gradlew clean cleanCache --refresh-dependencies
           ./gradlew applyAllPatches --no-daemon --stacktrace 
           ./gradlew build --no-daemon --stacktrace
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: purpur
+          compression-level: 0 # .jar files are already compressed anyway
+          path: target/Purpur-*.jar
